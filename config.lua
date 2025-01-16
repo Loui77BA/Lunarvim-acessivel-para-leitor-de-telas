@@ -31,3 +31,29 @@ lvim.format_on_save = true
 --------------------------------------------------------------------------------
 -- Ajustes finais ou overrides podem ser colocados aqui, se necessário.
 --------------------------------------------------------------------------------
+
+-- Ativar wrap para exibir texto quebrado em linhas longas
+vim.o.wrap = true
+
+-- Adicionar mapeamento para exibir páginas de ajuda rapidamente
+vim.api.nvim_set_keymap("n", "<C-h>", ":Telescope help_tags<CR>", { noremap = true, silent = true })
+
+-- Adicionar mapeamento para abrir o terminal integrado
+vim.api.nvim_set_keymap("n", "<C-t>", ":ToggleTerm<CR>", { noremap = true, silent = true })
+
+-- Adicionar mapeamento para alternar entre buffers
+vim.api.nvim_set_keymap("n", "<C-Tab>", ":bnext<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<C-S-Tab>", ":bprev<CR>", { noremap = true, silent = true })
+
+-- Adicionar mapeamento para salvar e sair rapidamente
+vim.api.nvim_set_keymap("n", "<C-s>", ":w<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap("n", "<C-q>", ":q<CR>", { noremap = true, silent = true })
+
+-- Adicionar mapeamento para abrir o NvimTree
+vim.api.nvim_set_keymap("n", "<C-e>", ":NvimTreeToggle<CR>", { noremap = true, silent = true })
+
+-- Adicionar mapeamento para abrir o Telescope
+vim.api.nvim_set_keymap("n", "<C-p>", ":Telescope find_files<CR>", { noremap = true, silent = true })
+
+-- Adicionar mapeamento para garantir que Esc funcione no modo de inserção
+vim.api.nvim_set_keymap("i", "<Esc>", "<Esc>", { noremap = true, silent = true })
