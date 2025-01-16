@@ -24,19 +24,18 @@ lvim.builtin.which_key.mappings[";"] = {
 
       -- Header (cabeçalho) com mensagem de boas-vindas
       dashboard.section.header.val = {
-        "Bem-vinda(o) ao LunarVim (em português do Brasil)!",
-        "(Dica: Use as setas do teclado para navegar e <Enter> para selecionar.)",
+        "LunarVim em português do Brasil!",
+        "Use as setas do teclado para navegar e Enter para selecionar.",
       }
 
       -- Botões iniciais
       dashboard.section.buttons.val = {
-        dashboard.button("f", "[Arquivos] Procurar Arquivo", "<cmd>Telescope find_files<CR>"),
-        dashboard.button("r", "[Recentes] Arquivos Recentes", "<cmd>lua vim.notify('Abrindo arquivos recentes...', vim.log.levels.INFO)<CR><cmd>Telescope oldfiles<CR>"),
-        dashboard.button("p", "[Projetos] Projetos", "<cmd>Telescope projects<CR>"),
-        dashboard.button("t", "[Texto] Buscar Texto", "<cmd>Telescope live_grep<CR>"),
-        dashboard.button("c", "[Configurações] Configurações", "<cmd>edit $MYVIMRC<CR>"),
-        dashboard.button("u", "[Atualizar] Atualizar Plugins", "<cmd>Lazy sync<CR>"),
-        dashboard.button("q", "[Sair] Sair do Lunarvim", "<cmd>qa<CR>"),
+        dashboard.button("f", "Procurar Arquivo", "<cmd>Telescope find_files<CR>"),
+        dashboard.button("r", "Arquivos Recentes", "<cmd>lua vim.notify('Abrindo arquivos recentes...', vim.log.levels.INFO)<CR><cmd>Telescope oldfiles<CR>"),
+        dashboard.button("p", "Projetos", "<cmd>Telescope projects<CR>"),
+        dashboard.button("t", "Buscar Texto", "<cmd>Telescope live_grep<CR>"),
+        dashboard.button("u", "Atualizar Plugins", "<cmd>Lazy sync<CR>"),
+        dashboard.button("q", "Sair do Lunarvim", "<cmd>qa<CR>"),
       }
 
       -- Rodapé (footer)
@@ -66,17 +65,16 @@ vim.api.nvim_set_keymap("i", "<Esc>", "<Esc>", { noremap = true, silent = true }
 local alpha_ok, dashboard = pcall(require, "alpha.themes.dashboard")
 if alpha_ok then
   dashboard.section.header.val = {
-    "Bem-vinda(o) ao LunarVim (em português do Brasil)!",
-    "(Dica: Use as setas do teclado para navegar e <Enter> para selecionar.)",
+    "LunarVim em português do Brasil!",
+    "Dica: Use as setas do teclado para navegar e Enter para selecionar.",
   }
   dashboard.section.buttons.val = {
-    dashboard.button("f", "[Arquivos] Procurar Arquivo", "<cmd>Telescope find_files<CR>"),
-    dashboard.button("r", "[Recentes] Arquivos Recentes", "<cmd>lua vim.notify('Abrindo arquivos recentes...', vim.log.levels.INFO)<CR><cmd>Telescope oldfiles<CR>"),
-    dashboard.button("p", "[Projetos] Projetos", "<cmd>Telescope projects<CR>"),
-    dashboard.button("t", "[Texto] Buscar Texto", "<cmd>Telescope live_grep<CR>"),
-    dashboard.button("c", "[Configurações] Configurações", "<cmd>edit $MYVIMRC<CR>"),
-    dashboard.button("u", "[Atualizar] Atualizar Plugins", "<cmd>Lazy sync<CR>"),
-    dashboard.button("q", "[Sair] Sair do Lunarvim", "<cmd>qa<CR>"),
+    dashboard.button("f", "Procurar Arquivo", "<cmd>Telescope find_files<CR>"),
+    dashboard.button("r", "Arquivos Recentes", "<cmd>lua vim.notify('Abrindo arquivos recentes...', vim.log.levels.INFO)<CR><cmd>Telescope oldfiles<CR>"),
+    dashboard.button("p", "Projetos", "<cmd>Telescope projects<CR>"),
+    dashboard.button("t", "Buscar Texto", "<cmd>Telescope live_grep<CR>"),
+    dashboard.button("u", "Atualizar Plugins", "<cmd>Lazy sync<CR>"),
+    dashboard.button("q", "Sair do Lunarvim", "<cmd>qa<CR>"),
   }
   dashboard.section.footer.val = {
     "Lembre-se: a prática leva à perfeição!",

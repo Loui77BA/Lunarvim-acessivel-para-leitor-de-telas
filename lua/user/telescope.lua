@@ -1,22 +1,7 @@
 --------------------------------------------------------------------------------
 -- lua/user/telescope.lua
--- Ajustes adicionais do Telescope com notificações otimizadas
+-- Ajustes adicionais do Telescope
 --------------------------------------------------------------------------------
-
-local actions = require("telescope.actions")
-local state = require("telescope.actions.state")
-
--- Variável para armazenar o item selecionado anteriormente
-local previous_entry = nil
-
--- Função para notificar apenas quando a seleção mudar
-local function notify_selected_once(prompt_bufnr)
-  local entry = state.get_selected_entry(prompt_bufnr)
-  if entry and entry ~= previous_entry then
-    vim.notify("Selecionado: " .. entry.value, vim.log.levels.INFO)
-    previous_entry = entry
-  end
-end
 
 lvim.builtin.telescope.defaults = {
   prompt_prefix   = "Buscar: ", -- Prefixo textual claro
@@ -28,22 +13,34 @@ lvim.builtin.telescope.defaults = {
       preview_height = 0.4,
     },
   },
-  path_display     = { "shorten" }, -- Mostra o caminho de forma reduzida
+  path_display     = { "absolute" },
   sorting_strategy = "ascending",
   mappings = {
     i = {
-      -- Navegar com feedback auditivo otimizado
+      -- Navegar com feedback auditivo
       ["<Up>"] = function(prompt_bufnr)
+        local actions = require("telescope.actions")
+        local state = require("telescope.actions.state")
         actions.move_selection_previous(prompt_bufnr)
-        notify_selected_once(prompt_bufnr)
+        local entry = state.get_selected_entry()
+        if entry then
+          vim.notify("Selecionado: " .. entry.value, vim.log.levels.INFO)
+        end
       end,
       ["<Down>"] = function(prompt_bufnr)
+        local actions = require("telescope.actions")
+        local state = require("telescope.actions.state")
         actions.move_selection_next(prompt_bufnr)
-        notify_selected_once(prompt_bufnr)
+        local entry = state.get_selected_entry()
+        if entry then
+          vim.notify("Selecionado: " .. entry.value, vim.log.levels.INFO)
+        end
       end,
       ["<CR>"] = function(prompt_bufnr)
+        local actions = require("telescope.actions")
+        local state = require("telescope.actions.state")
         actions.select_default(prompt_bufnr)
-        local entry = state.get_selected_entry(prompt_bufnr)
+        local entry = state.get_selected_entry()
         if entry then
           vim.notify("Abrindo: " .. entry.value, vim.log.levels.INFO)
         end
